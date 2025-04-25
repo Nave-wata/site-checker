@@ -41,6 +41,12 @@ This repository contains a Scrapy project set up with Docker and Docker Compose 
    docker-compose up -d
    ```
 
+   By default, the container will run with the same user ID and group ID as your host user to avoid permission issues.
+   If you need to specify different IDs, you can do so by setting the `UID` and `GID` environment variables:
+   ```
+   UID=$(id -u) GID=$(id -g) docker-compose up -d
+   ```
+
 3. Access the container shell:
    ```
    docker-compose exec scraper bash

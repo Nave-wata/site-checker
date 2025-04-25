@@ -3,9 +3,14 @@ services:
     build:
       context: ./scraper
       dockerfile: ./docker/Dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     volumes:
       - ./scraper:/app
     working_dir: /app
     tty: true
+    # Use the same UID/GID as the host user to avoid permission issues
+    user: ${UID:-1000}:${GID:-1000}
     # Uncomment the following line to run the spider
     # command: scrapy crawl example
