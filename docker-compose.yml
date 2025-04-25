@@ -6,4 +6,4 @@ services:
     working_dir: /app
     tty: true
     # Uncomment the following line to run the spider
-    # command: cd scraper && scrapy crawl example
+    # command: scrapy crawl example

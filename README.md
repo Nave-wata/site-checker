@@ -47,7 +47,6 @@ This repository contains a Scrapy project set up with Docker and Docker Compose 
 
 4. Run the example spider:
    ```
-   cd scraper
    scrapy crawl example
    ```
 
@@ -62,7 +61,6 @@ Alternatively, you can uncomment the command line in `docker-compose.yml` to run
 
 2. Create a new spider:
    ```
-   cd scraper
    scrapy genspider <spider-name> <domain>
    ```
 
@@ -71,7 +69,6 @@ Alternatively, you can uncomment the command line in `docker-compose.yml` to run
 ## Running Spiders
 
 ```
-cd scraper
 scrapy crawl <spider-name>
 ```
 
