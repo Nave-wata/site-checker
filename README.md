@@ -6,10 +6,11 @@ This repository contains a Scrapy project set up with Docker and Docker Compose 
 
 ```
 .
-├── Dockerfile
 ├── docker-compose.yml
-├── requirements.txt
 └── scraper/
+    ├── docker/
+    │   └── Dockerfile
+    ├── requirements.txt
     ├── scrapy.cfg
     └── scraper/
         ├── __init__.py

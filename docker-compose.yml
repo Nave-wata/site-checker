@@ -1,6 +1,8 @@
 services:
   scraper:
-    build: .
+    build:
+      context: ./scraper
+      dockerfile: ./docker/Dockerfile
     volumes:
       - ./scraper:/app
     working_dir: /app
