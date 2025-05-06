@@ -13,4 +13,4 @@ services:
     # Use the same UID/GID as the host user to avoid permission issues
     user: ${UID:-1000}:${GID:-1000}
     # Uncomment the following line to run the spider
-    # command: scrapy crawl example
+    # command: ./entry.py

@@ -54,7 +54,7 @@ This repository contains a Scrapy project set up with Docker and Docker Compose 
 
 4. Run the example spider:
    ```
-   scrapy crawl example
+   ./entry.py
    ```
 
 Alternatively, you can uncomment the command line in `docker-compose.yml` to run the spider directly when starting the container.
@@ -76,15 +76,19 @@ Alternatively, you can uncomment the command line in `docker-compose.yml` to run
 ## Running Spiders
 
 ```
-scrapy crawl <spider-name>
+./entry.py
 ```
+
+Note: The entry.py script is configured to run the example spider. If you need to run a different spider, you'll need to
+modify the script.
 
 ## Exporting Data
 
-To export data to a file, use the `-o` option:
+To export data to a file when using the entry.py script, you'll need to modify the script to include output options.
+Alternatively, you can still use the traditional Scrapy command with the `-o` option:
 
 ```
-scrapy crawl <spider-name> -o output.json
+scrapy crawl example -o output.json
 ```
 
 Supported formats include JSON, CSV, XML, and more.
