@@ -79,8 +79,61 @@ Alternatively, you can uncomment the command line in `docker-compose.yml` to run
 ./entry.py
 ```
 
-Note: The entry.py script is configured to run the example spider. If you need to run a different spider, you'll need to
-modify the script.
+By default, the entry.py script is now configured to run the LinkFollowerSpider, which crawls a website by following all
+links. You can also run the original example spider by specifying it:
+
+```
+./entry.py --spider=example
+```
+
+### Using the LinkFollowerSpider
+
+The LinkFollowerSpider is designed to crawl websites by extracting all `<a>` tags and following their links. It has the
+following features:
+
+- Extracts all links from each page
+- Follows links to crawl through all pages of the site
+- Limits crawl depth to prevent infinite crawling
+- Filters out duplicate URLs
+- Avoids following fragment links (#) and javascript links
+
+You can customize the spider's behavior using command-line arguments:
+
+```
+# Run with custom start URL and allowed domain
+./entry.py --start-urls=https://example.org --allowed-domains=example.org
+
+# Run with custom depth limit
+./entry.py --settings=DEPTH_LIMIT=5
+
+# Run the example spider instead
+./entry.py --spider=example
+
+# Export data to a file
+./entry.py -o output.json -t json
+```
+
+### Available Command-Line Options
+
+The entry.py script supports the following command-line options:
+
+- `--spider`: Spider to run (default: link_follower)
+- `--start-urls`: Comma-separated list of start URLs
+- `--allowed-domains`: Comma-separated list of allowed domains
+- `--settings`: Additional settings in the format NAME=VALUE (can be used multiple times)
+- `-o, --output`: Output file (e.g., output.json)
+- `-t, --output-format`: Output format (e.g., json, csv, xml)
+
+You can also modify the entry.py file directly to customize the spider's behavior:
+
+```python
+# In entry.py
+run_spider(
+   start_urls=["https://example.org"],
+   allowed_domains=["example.org"],
+   custom_settings={'DEPTH_LIMIT': 5}
+)
+```
 
 ## Exporting Data
 
